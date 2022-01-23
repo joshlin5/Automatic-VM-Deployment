@@ -4,6 +4,9 @@ const os    = require('os');
 const path  = require('path');
 const waitssh = require('waitssh');
 
+
+const virtcrud = require('virtcrud');
+
 const VBoxManage = require('../lib/VBoxManage');
 const ssh = require('../lib/ssh');
 
@@ -22,11 +25,17 @@ exports.builder = yargs => {
 
 
 exports.handler = async argv => {
-    const { force } = argv;
+    const { force, processor } = argv;
 
     (async () => {
     
-        await up(force);
+
+
+        if( processor === "Arm64" ) {
+            
+        } else {
+            await up(force);
+        }
 
     })();
 

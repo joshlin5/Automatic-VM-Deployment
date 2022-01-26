@@ -30,13 +30,9 @@ exports.handler = async argv => {
     console.log(chalk.keyword('pink')(`Bringing up machine ${name}`));
 
     try {
-        //await provider.up(force);
-        let ip = await provider._macToIP("f2:d8:8f:cb:ee:6a");
-
-        console.log(ip);
-        
+        await provider.up(force);        
     } catch (err) {
         console.log( chalk.red( err.message ) );
     }
-
+    
 };

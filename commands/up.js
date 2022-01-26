@@ -1,9 +1,10 @@
 const chalk = require('chalk');
+const pathUtil = require("path");
 
 const VBoxProvider = require('../lib/provider/vbox');
 const VirtualizationFrameworkProvider = require('../lib/provider/vf');
 
-exports.command = 'up';
+exports.command = 'up <image_dir>';
 exports.desc = 'Provision and configure a new development environment';
 exports.builder = yargs => {
     yargs.options({
@@ -18,7 +19,7 @@ exports.builder = yargs => {
 
 
 exports.handler = async argv => {
-    const { force, processor } = argv;
+    const { force, image_dir, processor } = argv;
 
     let provider = new VBoxProvider()
 
@@ -27,10 +28,12 @@ exports.handler = async argv => {
     }
 
     let name = `V`;
-    console.log(chalk.keyword('pink')(`Bringing up machine ${name}`));
+    let image = pathUtil.basename( image_dir );
+
+    console.log(chalk.keyword('pink')(`Bringing up machine ${name} using ${image} image`));
 
     try {
-        await provider.up(force);        
+        await provider.up(name, image_dir, force);        
     } catch (err) {
         console.log( chalk.red( err.message ) );
     }

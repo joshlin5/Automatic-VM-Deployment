@@ -8,6 +8,7 @@ RUN apt-get update && \
 RUN apt install udev kmod -y
 # ssh, sudo, and netplan
 RUN apt install openssh-server netplan.io sudo -y
+RUN apt install dnsutils inetutils-ping -y
 
 # Copy the kernel and initrd to known path easier extraction
 RUN cp /boot/vmlinuz-* /vmlinuz
@@ -23,4 +24,4 @@ ARG PUB_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCo+YRhI2Gjno+5ND+N/pBvvw7Bvji
 RUN mkdir -p /home/ubuntu/.ssh/ && echo $PUB_KEY > /home/ubuntu/.ssh/authorized_keys
 
 # Add networking
-COPY 01-dhcp.yaml /etc/netplan/01-dhcp.yaml
+COPY 01-dhcp.yaml /etc/netplan/

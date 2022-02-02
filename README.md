@@ -30,3 +30,5 @@ Essential NodeJS: Promises - <img width="1728" alt="Promise Activity" src="Promi
 * How does exactly does bakerx access the virtual machine through ssh? - bakerx opens a socket and waits for a sshd daemon to respond. Once the sshd daemon responds, bakerx fowards the ssh connection to the VM's ssh port.
 * Explain the difference between the `rootfs` disk image and `initrd` disk image. - The initrd disk image un-gzips the rootfs into the memory system and provides binaries that I can run in the Linux environment. However, rootfs is like the initrd but will contain the real file system that will provide all the things we need.
 * What was a new feature, challenge, or interesting learning experience that you encountered while doing the homework or classroom exercises? - It was very interesting learning how to code in nodejs and how to write promises, especially in the VM homework.
+
+[Homework-V Commands Screencast](https://youtu.be/wlsngeN5vWI)

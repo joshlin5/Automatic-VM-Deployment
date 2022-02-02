@@ -15,4 +15,6 @@ v up ~/.bakerx/.persist/images/focal
 v ssh
 ```
 
-Essential NodeJS: Promises - <img width="1728" alt="Promise Activity" src="PromiseActivity1.png", "PromiseActivity2.png">
+Essential NodeJS: Promises - <img width="1728" alt="Promise Activity" src="PromiseActivity1.png">
+<img width="1728" alt="Promise Activity" src="PromiseActivity2.png">
+<img width="1728" alt="Promise Activity" src="PromiseActivity3.png">
